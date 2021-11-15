@@ -1,22 +1,18 @@
 #include<stdio.h>
 #include<string.h>
-
-
-char*swap(char*a,char*b){
-	int i;
-	int len=strlen(a);
-	for(i=0;i<len;i++){
-		b[i]=a[len-1-i];
-		
-	}
-	return b;
-	
-}
 int main()
 {
-	char a[200],b[200];
+	int i=0;
+	char a[200]={0};
+	char b[200]={0};
 	gets(a);
-	swap(a,b);
+
+	int t=strlen(a);
+	while(a[t-i-1]!=0){
+		b[i]=a[t-i-1];
+		i++;
+	}
 	puts(b);
 	return 0;
+	
 }

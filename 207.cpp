@@ -14,14 +14,9 @@ int main()
 	for(i=0;i<n-1;i++){
 		for(j=i+1;j<n;j++){
 			if(strcmp(str[j],str[i])<0){
-				while(str[i][p]!=0||str[j][p]!=0){
-					q[p]=str[j][p];
-					str[j][p]=str[i][p];
-					str[i][p]=q[p];
-					p++;
-					
-				}
-				p=0;
+				strcpy(q,str[j]);
+				strcpy(str[j],str[i]);
+				strcpy(str[i],q);
 			}
 		}
 	}

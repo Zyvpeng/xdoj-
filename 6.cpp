@@ -1,53 +1,72 @@
 #include<stdio.h>
 int main()
 {
-	int n,i,p,q,j,swap,t;
+	
+int n,t;
 	scanf("%d",&n);
 	int a[n],b[n];
+	int i,j,p,count=0;;
+	 
 	for(i=0;i<n;i++){
 		scanf("%d",&a[i]);
-	}
+	} 
+	
+	
 	for(i=0;i<n;i++){
-	b[i]=0;
+		t=a[i];
+		
+		while(t!=0){
+			count+=t%10;
+			t/=10;
+		}
+		b[i]=count ;
+		count=0;
 	}
-	for(i=0;i<n;i++){
-	 q=a[i];
-	while(q>0){
-		b[i]+=(q%10);
-		q/=10;
+	
+	
+	
+	for(i=0;i<n-1;i++){
+		for(j=i+1;j<n;j++){
+			if(b[j]>b[i]){
+				t=b[j];
+				b[j]=b[i];
+				b[i]=t;
+				
+				
+				t=a[j];
+				a[j]=a[i];
+				a[i]=t;
+				
+			}
 		}
 	}
 	
+	
+	
 	for(i=0;i<n-1;i++){
-		for(j=i;j<n;j++){
-			if(b[i]<b[j]){
-				swap=a[i];
-				a[i]=a[j];
-				a[j]=swap;
-				t=b[i];
-				b[i]=b[j];
-				b[j]=t;
-			}
+		for(j=i+1;j<n;j++){
 			
-		}
-	}
-
-
-	for(i=0;i<n-1;i++){
-		for(j=i;j<n;j++){
-			if(b[i]==b[j]&&a[i]>a[j]){
-				swap=a[i];
-				a[i]=a[j];
-				a[j]=swap;
-				t=b[i];
-				b[i]=b[j];
-				b[j]=t;
+			if(b[j]==b[i]&&a[j]<a[i]){
+				
+				t=b[j];
+				b[j]=b[i];
+				b[i]=t;
+				
+				t=a[j];
+				a[j]=a[i];
+				a[i]=t;
 			}
 		}
+			
+		
 	}
+	
+	
 	for(i=0;i<n;i++){
+		
 		printf("%d %d\n",a[i],b[i]);
 		
 	}
+	
 	return 0;
 }

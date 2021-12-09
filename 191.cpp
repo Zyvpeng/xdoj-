@@ -2,17 +2,21 @@
 int main()
 {
 	char a[100]={0};
-	scanf("%s",a);
-	int i;
+	gets(a);
+	int i=0,j;
+	char t;
 	while(a[i]!=0){
 		if(a[i]>='a'&&a[i]<='z'){
-			a[i]='a'+25-(a[i]-'a');
+				j=a[i]-'a';
+				a[i]='a'+25-j;
+				i++;
 		}
 		else{
-			a[i]='A'+25-(a[i]-'A');
-		}
-		i++;
+				j=a[i]-'A';
+				a[i]='A'+25-j;
+				i++;
+		} 
 	}
-	printf("%s",a);
-	return 0;
+	puts(a);
+	return 0;	
 }

@@ -1,37 +1,44 @@
 #include<stdio.h>
-#include<string.h>
 int main()
 {
-	char a[1000];
+	char a[100]={0};
 	scanf("%s",a);
-	char z=a[0];
-	int t =strlen(a);
-	char b[500];
-	char c[500];
-	int i,j;
-	int p=0,q=0;
-	for(i=0;i<t;i++){
-		if(a[i]>z){
-			b[p]=a[i];
-			p++;
+	int i=1;
+	while(a[i]!=0){
+		if(a[i]>a[0]){
+			printf("%c",a[i]);
 		}
-		else{
-			c[q]=a[i];
-			q++;
+		i++;
+	}
+	
+	printf("%c",a[0]);
+	i=1;
+	int j=0,p=0;
+	char d;
+	int b[100]={0};
+	while (a[i]!=0){
+			if(a[i]<=a[0]){
+			b[j]=a[i];
+			j++;
 		}
+		i++;
 	}
 	
 	
-	char f;
-	for(i=0;i<q-1;i++){
-		for(j=i;j<q;j++){
-			if(c[j]<c[i]){
-				f=c[j];
-				c[j]=c[i];
-				c[i]=f;
+	
+	for(i=0;i<j-1;i++){
+		for(p=i+1;p<j;p++){
+			if(b[p]<b[i]){
+				d=b[p];
+				b[p]=b[i];
+				b[i]=d;
 			}
 		}
 	}
-printf("%s%s",b,c);
-return 0;
+	
+	for(i=0;i<j;i++){
+		printf("%c",b[i]);
+	}
+	
+	return 0;
 }

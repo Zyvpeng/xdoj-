@@ -1,34 +1,41 @@
 #include<stdio.h>
 int main()
 {
-	int n,i=0,count=0,cnt=0,p;
-	int ok=1;
-	int a[50],b[50];
-	scanf("%d",&n);
-	for(p=0;p<50;p++){
-		a[p]=0;
-		b[p]=0;
-	}
-	while(n!=0){
-		a[i]=n%10;
-		b[i]=a[i];
-		cnt+=a[i];
-		n/=10;
+	int x,i,j=1;
+	scanf("%d",&x);
+	int count=0,sum=0,t;
+	t=x;
+	while(t!=0){
 		count++;
-		i++;
+		t/=10;
 	}
+
+	int a[count];
+	t=x;
 	for(i=0;i<count;i++){
-		if(a[i]!=b[count-1-i]){
-			ok =0;
+		a[i]=t%10;
+		sum+=t%10;
+		t/=10;	
+	}
+	
+	for(i=0;i<count;i++){
+		if(a[i]!=a[count-1-i]){
+			j=0;
 			break;
 		}
 		
 	}
-	if(ok==1){
-		printf("%d",cnt);
-	} else
-	{
+	
+	
+	if(j==1){
+	printf("%d",sum);
+		
+	}
+	else{
 		printf("no");
 	}
+	
+	
+	
 	return 0;
 }
